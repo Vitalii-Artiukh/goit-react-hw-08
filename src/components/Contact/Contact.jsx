@@ -1,7 +1,7 @@
 import { React } from 'react';
 import { MdClose } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsOps';
+import { deleteContact } from '../../redux/contacts/operations';
 import clsx from 'clsx';
 import css from './Contact.module.css';
 

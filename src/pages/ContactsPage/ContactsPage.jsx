@@ -1,20 +1,21 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectError, selectLoading } from '../../redux/selectors';
+import ContactForm from '../../components/ContactForm/ContactForm';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import ContactList from '../../components/ContactList/ContactList';
-import ContactForm from '../../components/ContactForm/ContactForm';
+import { useSelector } from 'react-redux';
+import { selectError, selectLoading } from '../../redux/contacts/selectors';
 import Loader from '../../components/Loader/Loader';
 import Error from '../../components/Error/Error';
 import clsx from 'clsx';
-import css from './AddressBookPage.module.css';
+import css from './ContactsPage.module.css'
 
-const AddressBookPage = () => {
+const ContactsPage = () => {
   const loader = useSelector(selectLoading);
   const error = useSelector(selectError);
 
   return (
     <div className={clsx(css.wrapper)}>
+      <h1 className={clsx(css.h1)}>Phonebook</h1>
       <ContactForm />
       <SearchBox />
       <div className={clsx(css.loaderWrapper)}>
@@ -26,4 +27,4 @@ const AddressBookPage = () => {
   );
 };
 
-export default AddressBookPage;
+export default ContactsPage;

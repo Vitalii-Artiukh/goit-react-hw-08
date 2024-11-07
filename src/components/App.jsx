@@ -1,9 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchContacts } from '../redux/contactsOps';
-import AddressBookPage from '../pages/AddressBookPage/AddressBookPage';
+import { fetchContacts } from '../redux/contacts/operations';
 import clsx from 'clsx';
 import css from './App.module.css';
+// import Layout from './Layout';
+import { Route, Routes } from 'react-router-dom';
+import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
+import LoginForm from './LoginForm/LoginForm';
+import LoginPage from '../pages/LoginPage/LoginPage';
+import ContactsPage from '../pages/ContactsPage/ContactsPage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -17,9 +22,11 @@ export const App = () => {
   });
 
   return (
-    <div className={clsx(css.wrapper)}>
-      <h1 className={clsx(css.h1)}>Phonebook</h1>
-      <AddressBookPage />
+    <div>
+      <RegistrationPage />
+      <LoginPage />
+      {/* <Route path="/" element={<HomePage />} /> */}
+      <ContactsPage />
     </div>
   );
 };

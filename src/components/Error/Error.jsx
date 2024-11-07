@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectError } from '../../redux/selectors';
+import { selectError } from '../../redux/contacts/selectors';
 import clsx from 'clsx';
 import css from './Error.module.css';
 

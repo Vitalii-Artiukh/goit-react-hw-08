@@ -1,8 +1,8 @@
 import { React, useId } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsOps';
-import contactSchema from '../API/validationSchema';
+import { addContact } from '../../redux/contacts/operations';
+import { contactSchema } from '../API/validationSchema';
 import clsx from 'clsx';
 import css from './ContactForm.module.css';
 
