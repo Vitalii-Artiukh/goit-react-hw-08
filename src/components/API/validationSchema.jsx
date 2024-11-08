@@ -26,3 +26,15 @@ export const registrationSchema = Yup.object().shape({
     .max(30, 'Password too long!')
     .required('Password is required!'),
 });
+
+export const logInSchema = Yup.object().shape({
+  email: Yup.string()
+    .email()
+    .min(5, 'Email too short!')
+    .max(50, 'Email too long!')
+    .required('Email is required!'),
+  password: Yup.string()
+    .min(7, 'Password too short!')
+    .max(30, 'Password too long!')
+    .required('Password is required!'),
+});

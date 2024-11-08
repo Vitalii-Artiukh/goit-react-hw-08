@@ -2,7 +2,9 @@ import clsx from 'clsx';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import css from './LoginForm.module.css';
 import { useId } from 'react';
-import { registrationSchema } from '../API/validationSchema';
+import { logInSchema, registrationSchema } from '../API/validationSchema';
+import { logIn } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
 
 const initialValues = {
   email: '',
@@ -10,20 +12,22 @@ const initialValues = {
 };
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const emailInput = useId();
   const passwordInput = useId();
 
   const handleSubmit = (values, actions) => {
-    //   const action = addContact(contact);
-    //   dispatch(action);
-    //   actions.resetForm();
+    const auth = { ...values };
+    const action = logIn(auth);
+    dispatch(action);
+    actions.resetForm();
   };
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={registrationSchema}
+      validationSchema={logInSchema}
     >
       <Form className={clsx(css.form)}>
         <div className={clsx(css.formWrapper)}>

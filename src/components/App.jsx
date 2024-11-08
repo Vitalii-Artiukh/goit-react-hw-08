@@ -9,12 +9,17 @@ import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
 import LoginForm from './LoginForm/LoginForm';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import ContactsPage from '../pages/ContactsPage/ContactsPage';
+import { refreshUser } from '../redux/auth/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
+
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   useEffect(() => {

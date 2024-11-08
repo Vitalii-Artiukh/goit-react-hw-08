@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { registrationSchema } from '../API/validationSchema';
 import clsx from 'clsx';
 import css from './RegistrationForm.module.css';
+import { register } from '../../redux/auth/operations';
 
 const initialValues = {
   name: '',
@@ -12,14 +13,16 @@ const initialValues = {
 };
 
 const RegistrationForm = () => {
+  const dispatch = useDispatch();
   const nameInputId = useId();
   const emailInput = useId();
   const passwordInput = useId();
 
   const handleSubmit = (values, actions) => {
-    //   const action = addContact(contact);
-    //   dispatch(action);
-    //   actions.resetForm();
+    const auth = { ...values };
+    const action = register(auth);
+    dispatch(action);
+    actions.resetForm();
   };
 
   return (
