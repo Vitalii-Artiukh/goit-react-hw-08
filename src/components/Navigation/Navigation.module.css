@@ -1,0 +1,23 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.87);
+  transition: font-size 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    padding 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link:hover {
+  font-size: 18px;
+  padding-top: 10.5px;
+
+  padding-bottom: 10.5px;
+
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.link.active {
+  color: #e8e84a;
+}

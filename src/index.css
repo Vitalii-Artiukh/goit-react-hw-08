@@ -14,7 +14,8 @@
 }
 
 #root {
-  max-width: 1280px;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -51,10 +52,10 @@ button {
   font-family: inherit;
   background-color: #1a1a1a; */
   cursor: pointer;
-  transition: border-color 0.25s;
+  /* transition: border-color 0.25s; */
 }
 button:hover {
-  border-color: #646cff;
+  /* border-color: #646cff; */
 }
 button:focus,
 button:focus-visible {
@@ -101,7 +102,7 @@ figcaption,
 blockquote,
 dl,
 dd {
-  margin: 0;
+  /* margin: 0; */
 }
 
 /* Выставляем основные настройки по-умолчанию для body */

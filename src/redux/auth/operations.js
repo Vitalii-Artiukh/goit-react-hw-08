@@ -39,8 +39,10 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkApi) => {
   try {
-    await axios.post('/users/logout');
+    const { data } = await axios.post('/users/logout');
+
     clearToken();
+    console.log(data);
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
   }
@@ -58,7 +60,6 @@ export const refreshUser = createAsyncThunk(
     try {
       setToken(persistToken);
       const { data } = await axios.get('/users/current');
-      console.log(data);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

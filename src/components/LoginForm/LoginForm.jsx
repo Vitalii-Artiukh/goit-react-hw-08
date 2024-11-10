@@ -39,6 +39,7 @@ const LoginForm = () => {
               type="email"
               name="email"
               id={emailInput}
+              placeholder="example@i.com"
             />
             <ErrorMessage name="email" component="span" />
           </label>
@@ -51,6 +52,7 @@ const LoginForm = () => {
               type="password"
               name="password"
               id={passwordInput}
+              placeholder="knl-ksn_01.9248"
             />
             <ErrorMessage name="password" component="span" />
           </label>

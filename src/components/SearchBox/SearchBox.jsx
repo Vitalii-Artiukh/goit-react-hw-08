@@ -18,6 +18,7 @@ const SearchBox = () => {
           type="text"
           id={searchName}
           onChange={event => dispatch(changeFilter(event.target.value))}
+          placeholder="Name or number"
         />
       </label>
     </div>

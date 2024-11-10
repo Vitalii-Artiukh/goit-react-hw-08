@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: first baseline;
+}
+
+.welcome {
+  font-size: 18px;
+  font-weight: 300;
+  .name {
+    font-weight: 700;
+  }
+}
+
+.btn {
+  background-color: rgb(211, 211, 211);
+  color: black;
+  font-weight: 500;
+  transition: background-color 250ms;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: #f66d6d;
+}

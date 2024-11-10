@@ -41,6 +41,7 @@ const RegistrationForm = () => {
               type="text"
               name="name"
               id={nameInputId}
+              placeholder="Peter Aleksandrov"
             />
             <ErrorMessage name="name" component="span" />
           </label>
@@ -53,6 +54,7 @@ const RegistrationForm = () => {
               type="email"
               name="email"
               id={emailInput}
+              placeholder="example@i.com"
             />
             <ErrorMessage name="email" component="span" />
           </label>
@@ -65,6 +67,7 @@ const RegistrationForm = () => {
               type="password"
               name="password"
               id={passwordInput}
+              placeholder="knl-ksn_01.9248"
             />
             <ErrorMessage name="password" component="span" />
           </label>

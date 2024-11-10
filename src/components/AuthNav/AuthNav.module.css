@@ -1,0 +1,20 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.87);
+  transition: font-size 250ms, padding 250ms;
+}
+
+.link:hover {
+  font-size: 18px;
+  padding-top: 9.5px;
+  padding-bottom: 9.5px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.link.active {
+  color: #e8e84a;
+}

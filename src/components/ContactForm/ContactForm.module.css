@@ -1,5 +1,6 @@
 .form {
   max-width: 300px;
+  width: 100%;
   border-radius: 6px;
   margin-bottom: 12px;
 }
@@ -22,11 +23,13 @@
   width: 100%;
   color: black;
   font-size: 12px;
+  align-items: flex-start;
 }
 
 .input {
   font-size: 16px;
   font-weight: 500;
+  width: 100%;
 
   background-color: inherit;
   color: inherit;
@@ -38,9 +41,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3px 4px;
   border-radius: 2px;
   color: black;
   font-weight: 500;
   background-color: rgb(211, 211, 211);
+  border-radius: 6px;
+  padding: 6px 12px;
+  transition: background-color 250ms;
+}
+
+.btn:hover {
+  background-color: #9a9a9a;
+}
+
+::placeholder {
+  font-size: 14px;
+  font-weight: 400;
 }

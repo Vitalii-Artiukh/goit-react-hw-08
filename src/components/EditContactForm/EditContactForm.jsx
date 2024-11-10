@@ -12,26 +12,26 @@ const initialValues = {
   number: '',
 };
 
-const ContactForm = () => {
+const EditContactForm = () => {
   const nameInputId = useId();
   const numberInputId = useId();
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, actions) => {
-    const contact = {
-      ...values,
-    };
+  // const handleSubmit = (values, actions) => {
+  //   const contact = {
+  //     ...values,
+  //   };
 
-    const action = addContact(contact);
-    dispatch(action);
+  //   const action = addContact(contact);
+  //   dispatch(action);
 
-    actions.resetForm();
-  };
+  //   actions.resetForm();
+  // };
 
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
       validationSchema={contactSchema}
     >
       <Form className={clsx(css.form)}>
@@ -44,7 +44,6 @@ const ContactForm = () => {
               type="text"
               name="name"
               id={nameInputId}
-              placeholder="Peter Aleksandrov"
             />
             <ErrorMessage name="name" component="span" />
           </label>
@@ -57,13 +56,12 @@ const ContactForm = () => {
               type="text"
               name="number"
               id={numberInputId}
-              placeholder="098 099-13-25"
             />
             <ErrorMessage name="number" component="span" />
           </label>
 
           <button className={clsx(css.btn)} type="submit">
-            Add new contact
+            Change contact
           </button>
         </div>
       </Form>
@@ -71,4 +69,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default EditContactForm;

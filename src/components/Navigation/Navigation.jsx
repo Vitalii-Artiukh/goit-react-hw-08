@@ -5,15 +5,19 @@ import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import css from './Navigation.module.css';
 
+const headerActive = ({ isActive }) => {
+  return clsx(css.link, isActive && css.active);
+};
+
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <nav>
-      <NavLink className={clsx(css.link)} to={'/'}>
+      <NavLink className={headerActive} to={'/'}>
         Home
       </NavLink>
       {isLoggedIn && (
-        <NavLink className={clsx(css.link)} to={'/contacts'}>
+        <NavLink className={headerActive} to={'/contacts'}>
           Contacts
         </NavLink>
       )}

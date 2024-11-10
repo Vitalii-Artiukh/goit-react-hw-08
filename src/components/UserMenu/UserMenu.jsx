@@ -8,10 +8,17 @@ import { logOut } from '../../redux/auth/operations';
 const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+
   return (
     <div className={clsx(css.wrapper)}>
-      <p className={clsx(css.userName)}>Welcome, {user.name}</p>
-      <button type="button" onClick={() => dispatch(logOut())}>
+      <p className={clsx(css.welcome)}>
+        Welcome, <span className={clsx(css.name)}>{user.name}!</span>
+      </p>
+      <button
+        type="button"
+        onClick={() => dispatch(logOut())}
+        className={clsx(css.btn)}
+      >
         Logout
       </button>
     </div>
