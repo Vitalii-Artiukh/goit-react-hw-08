@@ -3,6 +3,7 @@ export const initialContacts = {
     items: [],
     loading: false,
     error: null,
+    currentContact: null,
   },
   filters: {
     name: '',
@@ -17,6 +18,8 @@ export const initialAuth = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  isLoading: false,
+  isError: null,
 };
 // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
 // { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },

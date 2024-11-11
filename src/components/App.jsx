@@ -1,20 +1,12 @@
 import React, { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from '../redux/contacts/operations';
-import clsx from 'clsx';
-import css from './App.module.css';
 import { Route, Routes } from 'react-router-dom';
 import { refreshUser } from '../redux/auth/operations';
-import { selectIsRefresh } from '../redux/auth/selectors';
+import { selectIsRefreshing } from '../redux/auth/selectors';
 import Layout from './Layout/Layout';
 import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 
-// import ContactsPage from '../pages/ContactsPage/ContactsPage';
-// import LoginPage from '../pages/LoginPage/LoginPage';
-
-// import HomePage from '../pages/HomePage/HomePage';
-// import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const RegistrationPage = lazy(() =>
   import('../pages/RegistrationPage/RegistrationPage')
@@ -24,7 +16,7 @@ const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isRefreshing = useSelector(selectIsRefresh);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());

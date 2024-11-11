@@ -1,11 +1,11 @@
 import { React } from 'react';
 import { MdClose } from 'react-icons/md';
-import { LiaUserEditSolid } from 'react-icons/lia';
 import { CiEdit } from 'react-icons/ci';
 import { useDispatch } from 'react-redux';
-import { addContact, deleteContact } from '../../redux/contacts/operations';
+import { deleteContact } from '../../redux/contacts/operations';
 import clsx from 'clsx';
 import css from './Contact.module.css';
+import { setCurrentContact } from '../../redux/contacts/slice';
 
 const Contact = ({ data: { id, name, number } }) => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Contact = ({ data: { id, name, number } }) => {
         <button
           className={clsx(css.btn)}
           type="button"
-          onClick={() => dispatch()}
+          onClick={() => dispatch(setCurrentContact({ id, name, number }))}
         >
           <CiEdit />
         </button>

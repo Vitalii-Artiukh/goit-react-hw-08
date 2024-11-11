@@ -1,8 +1,4 @@
-.registrationWrapper {
-  justify-items: center;
-}
-
-.loaderWrapperAuth {
+.loaderWrapper {
   height: 80px;
   margin-top: -24px;
   margin-bottom: -36px;

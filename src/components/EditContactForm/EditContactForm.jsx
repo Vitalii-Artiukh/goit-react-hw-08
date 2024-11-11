@@ -1,41 +1,47 @@
 import { React, useId } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts/operations';
+import { useDispatch, useSelector } from 'react-redux';
 import { contactSchema } from '../API/validationSchema';
+import { MdClose } from 'react-icons/md';
 import clsx from 'clsx';
-import css from './ContactForm.module.css';
+import css from './EditContactForm.module.css';
+import {
+  selectContactId,
+  selectCurrentContact,
+} from '../../redux/contacts/selectors';
+import { editContact } from '../../redux/contacts/operations';
 
-const initialValues = {
-  id: '',
-  name: '',
-  number: '',
-};
+// const initialValues = {
+//   id: '',
+//   name: '',
+//   number: '',
+// };
 
 const EditContactForm = () => {
   const nameInputId = useId();
   const numberInputId = useId();
   const dispatch = useDispatch();
+  const initialValues = useSelector(selectCurrentContact);
+  const contactId = useSelector(selectContactId);
 
-  // const handleSubmit = (values, actions) => {
-  //   const contact = {
-  //     ...values,
-  //   };
+  const handleSubmit = (values, actions) => {
+    const action = editContact({ ...values, contactId });
+    dispatch(action);
 
-  //   const action = addContact(contact);
-  //   dispatch(action);
-
-  //   actions.resetForm();
-  // };
+    actions.resetForm();
+  };
 
   return (
     <Formik
       initialValues={initialValues}
-      // onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
       validationSchema={contactSchema}
     >
       <Form className={clsx(css.form)}>
         <div className={clsx(css.formWrapper)}>
+          <button type="submit" className={clsx(css.closeBtn)}>
+            <MdClose />
+          </button>
           <label htmlFor={nameInputId} className={clsx(css.label)}>
             <span>Name</span>
 

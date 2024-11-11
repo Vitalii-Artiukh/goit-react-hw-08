@@ -1,9 +1,11 @@
 import React from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
+import clsx from 'clsx';
+import css from './LoginPage.module.css';
 
 const LoginPage = () => {
   return (
-    <div>
+    <div className={clsx(css.loginWrapper)}>
       <LoginForm />
     </div>
   );

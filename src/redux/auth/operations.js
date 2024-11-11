@@ -19,7 +19,7 @@ export const register = createAsyncThunk(
       setToken(data.token);
       return data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.status);
     }
   }
 );
@@ -39,10 +39,9 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkApi) => {
   try {
-    const { data } = await axios.post('/users/logout');
+    await axios.post('/users/logout');
 
     clearToken();
-    console.log(data);
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
   }
