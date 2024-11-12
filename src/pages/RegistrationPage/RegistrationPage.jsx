@@ -1,22 +1,27 @@
 import React from 'react';
-import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
-import clsx from 'clsx';
-import css from './RegistrationPage.module.css';
 import { useSelector } from 'react-redux';
 import { selectIsError, selectIsLoading } from '../../redux/auth/selectors';
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 import Loader from '../../components/Loader/Loader';
-import Error from '../../components/ErrorAuth/Error';
+import clsx from 'clsx';
+import css from './RegistrationPage.module.css';
 
 const RegistrationPage = () => {
   const loader = useSelector(selectIsLoading);
   const error = useSelector(selectIsError);
+
   return (
-    <div className={clsx(css.registrationWrapper)}>
+    <div>
       <div className={clsx(css.loaderWrapperAuth)}>
-        {loader && !error && <Loader />}
-        {error && !loader && <Error />}
+        {loader && <Loader />}
+        {error === 'Unable to fetch user' && (
+          <p>Please register or log in to your account</p>
+        )}
+        {error === 400 && <p>User registration error</p>}
       </div>
-      <RegistrationForm />
+      <div className={clsx(css.registrationWrapper)}>
+        <RegistrationForm />
+      </div>
     </div>
   );
 };

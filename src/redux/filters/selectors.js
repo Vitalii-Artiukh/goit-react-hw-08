@@ -5,7 +5,6 @@ export const selectNameFilter = state => state.filter.name;
 const selectItems = state => state.contacts.items;
 
 export const selectFilteredContacts = createSelector(
-  // const selectItems = useSelector(selectItems)
   [selectItems, selectNameFilter],
   (items, filtered) => {
     return items?.filter(

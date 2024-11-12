@@ -1,8 +1,8 @@
 import React from 'react';
-import clsx from 'clsx';
-import css from './HomePage.module.css';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectUser } from '../../redux/auth/selectors';
+import clsx from 'clsx';
+import css from './HomePage.module.css';
 
 const HomePage = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);

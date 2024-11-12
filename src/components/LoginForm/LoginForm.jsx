@@ -1,10 +1,10 @@
-import clsx from 'clsx';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-import css from './LoginForm.module.css';
 import { useId } from 'react';
+import { useDispatch } from 'react-redux';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { logInSchema, registrationSchema } from '../API/validationSchema';
 import { logIn } from '../../redux/auth/operations';
-import { useDispatch } from 'react-redux';
+import clsx from 'clsx';
+import css from './LoginForm.module.css';
 
 const initialValues = {
   email: '',

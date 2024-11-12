@@ -1,10 +1,10 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { useId } from 'react';
 import { useDispatch } from 'react-redux';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { registrationSchema } from '../API/validationSchema';
+import { register } from '../../redux/auth/operations';
 import clsx from 'clsx';
 import css from './RegistrationForm.module.css';
-import { register } from '../../redux/auth/operations';
 
 const initialValues = {
   name: '',

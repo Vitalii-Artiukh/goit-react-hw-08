@@ -9,7 +9,6 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.isError = action.payload;
-  console.log(state.isError);
 };
 
 const authSlice = createSlice({
@@ -47,18 +46,18 @@ const authSlice = createSlice({
       })
       .addCase(logOut.rejected, handleRejected)
       .addCase(refreshUser.pending, state => {
-        state.isLoading = false;
+        state.isLoading = true;
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        // state.isLoading = false;
+        state.isLoading = true;
         state.isError = false;
         state.user = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, (state, action) => {
-        // state.isLoading = false;
+        state.isLoading = false;
         state.isRefreshing = false;
         state.isError = action.payload;
       });

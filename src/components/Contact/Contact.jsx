@@ -1,11 +1,13 @@
 import { React } from 'react';
-import { MdClose } from 'react-icons/md';
+import { RiDeleteBinLine } from 'react-icons/ri';
 import { CiEdit } from 'react-icons/ci';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contacts/operations';
+import {
+  setConfirmDeletion,
+  setCurrentContact,
+} from '../../redux/contacts/slice';
 import clsx from 'clsx';
 import css from './Contact.module.css';
-import { setCurrentContact } from '../../redux/contacts/slice';
 
 const Contact = ({ data: { id, name, number } }) => {
   const dispatch = useDispatch();
@@ -24,6 +26,7 @@ const Contact = ({ data: { id, name, number } }) => {
       </div>
       <div className={clsx(css.btnWrapper)}>
         <button
+          title="Edit contact"
           className={clsx(css.btn)}
           type="button"
           onClick={() => dispatch(setCurrentContact({ id, name, number }))}
@@ -33,9 +36,10 @@ const Contact = ({ data: { id, name, number } }) => {
         <button
           className={clsx(css.btn)}
           type="button"
-          onClick={() => dispatch(deleteContact(id))}
+          onClick={() => dispatch(setConfirmDeletion({ id, name, number }))}
+          title="Delete contact"
         >
-          <MdClose />
+          <RiDeleteBinLine />
         </button>
       </div>
     </div>

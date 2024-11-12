@@ -25,6 +25,12 @@ const contactsSlice = createSlice({
     setCurrentContact(state, action) {
       state.currentContact = action.payload;
     },
+    setConfirmDeletion(state, action) {
+      state.confirmDeletion = action.payload;
+    },
+    clearContacts(state, action) {
+      state.items = null;
+    },
   },
 
   extraReducers: builder => {
@@ -53,6 +59,7 @@ const contactsSlice = createSlice({
           contact => contact.id === action.payload.id
         );
         state.items.splice(index, 1);
+        state.confirmDeletion = null;
       })
       .addCase(deleteContact.rejected, handleRejected)
       .addCase(editContact.pending, handlePending)
@@ -70,4 +77,5 @@ const contactsSlice = createSlice({
 
 export default contactsSlice.reducer;
 export const contactsReducer = contactsSlice.reducer;
-export const { setCurrentContact } = contactsSlice.actions;
+export const { setCurrentContact, setConfirmDeletion, clearContacts } =
+  contactsSlice.actions;

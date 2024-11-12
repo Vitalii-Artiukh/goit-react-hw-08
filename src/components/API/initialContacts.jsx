@@ -4,6 +4,7 @@ export const initialContacts = {
     loading: false,
     error: null,
     currentContact: null,
+    confirmDeletion: null,
   },
   filters: {
     name: '',
